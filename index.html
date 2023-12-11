@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <main class="d-flex">
+            <section id="scrollbar" class="d-flex">
+                <div class="user-profile">
+
+                </div>
+                <div class="new-message-notification"></div>
+                <div class="search-bar"></div>
+                <nav class="contacts">
+                    <div class="single-contact-item d-flex" v-for="singleContact in contacts">
+                        <section class="contact-img">
+                            <img :src="singleContact.avatar" alt="Contact profile image">
+                        </section>
+                        <section class="single-contact-description">
+                            <h4>{{singleContact.name}}</h4>
+                            <span>Ultimo messaggio inviato</span>
+                        </section>
+
+                    </div>
+                </nav>
+
+            </section>
+            <section id="conversation-container">
+                <div class="user-profile"></div>
+                <div class="conversation"></div>
+                <div class="input-message"></div>
+            </section>
+        </main>
+
+    </div>
+
+
+    <!-- SCRIPT VUE -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <!-- SCRIPT JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

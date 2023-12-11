@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+div.container {
+    height: 100vh;
+    background: linear-gradient(to bottom, #009688 0px, #009688 15vh,
+    #dddbd1 15vh, #d2dbdc 100%);;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main {
+    height: 90%;
+    width: 80%;
+    background-color: red;
+}
+.d-flex {
+    display: flex;
+}
+
+section#scrollbar {
+    width: 35%;
+    background-color: #ffffff;
+    flex-direction: column;
+}
+section#conversation-container{
+    width: 65%;
+    background-color: rgb(234, 234, 234);
+}
+
+div.user-profile {
+    height: 70px;
+    background-color: rgb(234, 234, 234);
+}
+div.new-message-notification {
+    height: 80px;
+    background-color: rgb(142, 218, 252);
+}
+div.search-bar{
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+}
+nav.contacts {
+    height: calc(100% - 210px);
+    background-color: rgb(255, 255, 255);
+    overflow-y: auto;
+}
+nav.contacts section.contact-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+nav.contacts div.single-contact-item {
+    padding: 1rem;
+}
+nav.contacts section.contact-img {
+    margin-right: 1rem;
+}
+nav.contacts section.single-contact-description span{
+    font-size: .7rem;
+    opacity: .4;
+}
+nav.contacts section.single-contact-description h4{
+    font-weight: 500;
+}
+
+nav.contacts section.contact-img img{
+    width: 100%;
+}
+
+
+
+
+div.input-message {
+    height: 70px;
+    background-color: rgb(243, 238, 234);
+}
+div.conversation {
+    height: calc(100% - 140px);
+    background-image: url('../img/mine.jpg');
+}
