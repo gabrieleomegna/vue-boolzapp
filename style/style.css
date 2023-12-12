@@ -60,6 +60,9 @@ nav.contacts section.contact-img {
 nav.contacts div.single-contact-item {
     padding: 1rem;
 }
+nav.contacts div.single-contact-item:hover {
+    background-color: rgb(233, 235, 235);
+}
 nav.contacts section.contact-img {
     margin-right: 1rem;
 }
@@ -85,4 +88,29 @@ div.input-message {
 div.conversation {
     height: calc(100% - 140px);
     background-image: url('../img/mine.jpg');
+    padding-top: 3rem;
 }
+div.message-container {
+    flex-direction: column;
+    padding: 0 3.5rem;
+}
+div.message-container article.single-message.sented {
+    background-color: rgb(213, 249, 186);
+    margin-left: 3rem;
+    align-self: flex-end;
+}
+div.message-container article.single-message.recieved {
+    background-color: white;
+    margin-right: 3rem;
+    align-self: flex-start;
+}
+div.message-container article.single-message{
+    margin: .25rem 1rem;
+    padding: .9rem 1rem;
+    border-radius: .5rem;
+    font-size: .75rem;
+}
+/* div.message-container.recieved article.single-message{
+}
+div.message-container.sented article.single-message{
+} */
