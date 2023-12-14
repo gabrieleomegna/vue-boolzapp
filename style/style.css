@@ -33,25 +33,66 @@ section#conversation-container{
     width: 65%;
     background-color: rgb(234, 234, 234);
 }
+section#conversation-container div.user-profile section.contact-img img {
+    width: 100%;
+}
+
+
+
 
 div.user-profile {
     height: 70px;
+    padding: .5rem;
     background-color: rgb(234, 234, 234);
+    align-items: center;
 }
+div.user-profile section.user-img img {
+    width: 100%;
+}
+div.user-profile > * {
+    margin-left: 1rem;
+}
+
+
+
 div.new-message-notification {
     height: 80px;
     background-color: rgb(142, 218, 252);
 }
 div.search-bar{
-    height: 60px;
+    height: 50px;
+    padding: .5rem;
+    background-color: rgb(250, 250, 250);
+}
+ div.input-searchbar-container,
+ div.input-message-container{
+    height: 100%;
+    width: 100%;
+    align-items: center;
     background-color: rgb(255, 255, 255);
 }
+div.search-bar div.input-searchbar-container > * {
+    margin-left: 2rem;
+}
+input{
+    height: 100%;
+    width: 86%;
+    border: none;
+}
+div.search-bar div.input-searchbar-container  i {
+    color: rgb(177, 174, 174);
+}
+
+
+
 nav.contacts {
     height: calc(100% - 210px);
     background-color: rgb(255, 255, 255);
     overflow-y: auto;
 }
-nav.contacts section.contact-img {
+nav.contacts section.contact-img,
+div.user-profile section.user-img,
+div.user-profile section.contact-img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -83,8 +124,25 @@ nav.contacts section.contact-img img{
 
 div.input-message {
     height: 70px;
+    padding: .3rem;
     background-color: rgb(243, 238, 234);
 }
+div.input-message div.input-message-container{
+    background-color: rgb(243, 238, 234);
+    justify-content: space-around;
+}
+input#input-message {
+    height: 80%;
+    border-radius: .5rem;
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+div.input-message-container > * {
+    margin-left: .8rem;
+}
+
+
+
 div.conversation {
     height: calc(100% - 140px);
     background-image: url('../img/mine.jpg');
@@ -105,11 +163,27 @@ div.message-container article.single-message.recieved {
     align-self: flex-start;
 }
 div.message-container article.single-message{
+    min-width: 45%;
+    max-width: 80%;
     margin: .25rem 1rem;
-    padding: .9rem 1rem;
     border-radius: .5rem;
-    font-size: .75rem;
+    font-size: .9rem;
+    justify-content: space-between;
 }
+div.message-container article.single-message span:nth-child(2){
+    font-size: .6rem;
+    align-self: flex-end;
+    margin-right: .3rem;
+    color: rgb(189, 188, 188);
+}
+div.message-container article.single-message span:first-child{
+    margin: 1rem;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+
+
 /* div.message-container.recieved article.single-message{
 }
 div.message-container.sented article.single-message{

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp</title>
+    <!-- FONT AWESOME  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- LINK CSS -->
     <link rel="stylesheet" href="style/style.css">
 </head>
@@ -11,11 +13,19 @@
     <div id="app" class="container">
         <main class="d-flex">
             <section id="scrollbar" class="d-flex">
-                <div class="user-profile">
-
+                <div class="user-profile d-flex">
+                    <section class="user-img">
+                        <img src="img/avatar_io.jpg" alt="User profile image">
+                    </section>
+                    <p>Gabriele</p>
                 </div>
                 <div class="new-message-notification"></div>
-                <div class="search-bar"></div>
+                <div class="search-bar">
+                    <div class="input-searchbar-container d-flex">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="input-searchbar" name="input-searchbar" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
                 <nav class="contacts">
                     <div class="single-contact-item d-flex" v-for="(singleContact, indexContact) in contacts" @click="findContact (indexContact)">
                         <section class="contact-img">
@@ -23,7 +33,7 @@
                         </section>
                         <section class="single-contact-description">
                             <h4>{{singleContact.name}}</h4>
-                            <span>{{singleContact.messages[1].message}}</span>
+                            <span>{{singleContact.messages.slice(length - 1).message}}</span>
                         </section>
 
                     </div>
@@ -31,15 +41,29 @@
 
             </section>
             <section id="conversation-container">
-                <div class="user-profile"></div>
+                <div class="user-profile d-flex">
+                    <section class="contact-img">
+                        <img :src="contacts[activeContact].avatar" alt="Contact profile image">
+                    </section>
+                    <section class="single-contact-description">
+                        <h4>{{contacts[activeContact].name}}</h4>
+                    </section>
+                </div>
                 <div class="conversation">
                     <div class="message-container d-flex">
-                        <article class="single-message" v-for = "singleMessage in contacts[activeContact].messages" :class = "singleMessage.status === 'sent' ? 'sented' : 'recieved'" >
-                            {{singleMessage.message}}
+                        <article class="single-message d-flex" v-for = "singleMessage in contacts[activeContact].messages" :class = "singleMessage.status === 'sent' ? 'sented' : 'recieved'" >
+                            <span>{{singleMessage.message}}</span>
+                            <span>{{singleMessage.date.split(' ')[1].split(':')[0]}}:{{singleMessage.date.split(' ')[1].split(':')[1]}}</span>
                         </article>
                     </div>
                 </div>
-                <div class="input-message"></div>
+                <div class="input-message">
+                    <div class="input-message-container d-flex">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input type="text" id="input-message" name="input-message" @keyup.enter="sendNewMessage" v-model="newMessageSented">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
             </section>
         </main>
 
@@ -47,7 +71,7 @@
 
 
     <!-- SCRIPT VUE -->
-    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- SCRIPT JS -->
     <script src="js/script.js"></script>
 </body>

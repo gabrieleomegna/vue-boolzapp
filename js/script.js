@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            newMessageSented : '',
             activeContact : 0,
             contacts: [
                 {
@@ -172,6 +173,15 @@ createApp({
     methods : {
         findContact(index) {
             this.activeContact = index;
+        },
+        sendNewMessage() {
+            let data = new Date();
+            this.contacts[this.activeContact].messages.push({
+                date : data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear() + ' ' + data.getHours() + ':' + data.getMinutes() + ':' + data.getSeconds(),
+                message: this.newMessageSented,
+                status: 'sent',
+            })
+            this.newMessageSented = '';
         }
     }
 }).mount('#app');
