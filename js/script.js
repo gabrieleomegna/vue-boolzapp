@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            searchNameContact : '',
             newMessageSented : '',
             activeContact : 0,
             contacts: [
@@ -171,7 +172,18 @@ createApp({
         }
     },
     methods : {
-        findContact(index) {
+        searchContact(filter) {
+            this.contacts.forEach(contact => {
+                if(contact.name.toLowerCase().includes(filter.trim().toLowerCase())) {
+                    contact.visible = true;
+                } else {
+                    contact.visible = false;
+                }
+            });
+        },
+
+
+        findIndexContact(index) {
             this.activeContact = index;
         },
         sendNewMessage() {
@@ -182,6 +194,13 @@ createApp({
                 status: 'sent',
             })
             this.newMessageSented = '';
+            setTimeout(() => {
+                this.contacts[this.activeContact].messages.push({
+                    date : data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear() + ' ' + data.getHours() + ':' + data.getMinutes() + ':' + data.getSeconds(),
+                    message: 'Gabriele non iniziare eh!!',
+                    status: 'recieved',
+                })
+              }, 1000);              
         }
     }
 }).mount('#app');

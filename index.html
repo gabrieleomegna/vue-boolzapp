@@ -23,17 +23,17 @@
                 <div class="search-bar">
                     <div class="input-searchbar-container d-flex">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="input-searchbar" name="input-searchbar" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" id="input-searchbar" name="input-searchbar" placeholder="Cerca o inizia una nuova chat" v-model="searchNameContact" @keyup="searchContact(searchNameContact)">
                     </div>
                 </div>
                 <nav class="contacts">
-                    <div class="single-contact-item d-flex" v-for="(singleContact, indexContact) in contacts" @click="findContact (indexContact)">
+                    <div class="single-contact-item d-flex" v-for="(singleContact, indexContact) in contacts" @click="findIndexContact(indexContact)" v-show="singleContact.visible">
                         <section class="contact-img">
                             <img :src="singleContact.avatar" alt="Contact profile image">
                         </section>
                         <section class="single-contact-description">
                             <h4>{{singleContact.name}}</h4>
-                            <span>{{singleContact.messages.slice(length - 1).message}}</span>
+                            <span>{{singleContact.messages[1].message}}</span>
                         </section>
 
                     </div>
